@@ -54,14 +54,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if(other.gameObject.CompareTag("pickup")){
-			other.gameObject.SetActive(false);
-			count++;
-			setCountText ();
-		}else if(other.gameObject.CompareTag("bonus")){
-			other.gameObject.SetActive(false);
-			count+=5;
-			setCountText();
+		if (playing) {
+			if (other.gameObject.CompareTag ("pickup")) {
+				other.gameObject.SetActive (false);
+				count++;
+				setCountText ();
+			} else if (other.gameObject.CompareTag ("bonus")) {
+				other.gameObject.SetActive (false);
+				count += 5;
+				setCountText ();
+			}
 		}
 	}
 
